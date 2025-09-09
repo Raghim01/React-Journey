@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useMemo, useReducer, useState } from "react";
 import {
   TodoItemsActionKind,
   todoItemsReducer,
@@ -6,7 +6,8 @@ import {
 } from "../components/items/reducer";
 
 type TodoContextType = {
-  state: TodoItemState[];
+  fullState: TodoItemState[];
+  functionalState: TodoItemState[];
   actions: {
     addItem: (title: string) => void;
     updateItem: (id: number, title: string) => void;
@@ -15,6 +16,7 @@ type TodoContextType = {
       id: number,
       event: React.ChangeEvent<HTMLInputElement>
     ) => void;
+    searchItem: (searchTerm: string) => void;
   };
 };
 
@@ -24,6 +26,27 @@ export const TodoContext = createContext<TodoContextType | undefined>(
 
 function TodoProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(todoItemsReducer, []);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  let filteredItems: TodoItemState[] = [];
+
+  if (searchTerm.length) {
+    filteredItems = state.filter((item) =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  } else {
+    filteredItems = state;
+  }
+
+  const searchItem = useMemo(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (term: string) => {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setSearchTerm(term.trim());
+      }, 500);
+    };
+  }, []);
 
   const actions = {
     addItem: (title: string) => {
@@ -44,10 +67,13 @@ function TodoProvider({ children }: { children: React.ReactNode }) {
         payload: { id, completed: event.target.checked },
       });
     },
+    searchItem,
   };
 
   return (
-    <TodoContext.Provider value={{ state, actions }}>
+    <TodoContext.Provider
+      value={{ fullState: state, functionalState: filteredItems, actions }}
+    >
       {children}
     </TodoContext.Provider>
   );

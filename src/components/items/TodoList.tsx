@@ -12,11 +12,11 @@ import TodoItem from "./TodoItem";
 // };
 
 function TodoList() {
-  const { state } = useTodos();
+  const { functionalState } = useTodos();
 
   return (
     <div className="w-full max-w-4xl mx-auto px-12 flex flex-col">
-      {state.map((item) => (
+      {functionalState.map((item) => (
         <TodoItem key={item.id} item={item} />
       ))}
     </div>
