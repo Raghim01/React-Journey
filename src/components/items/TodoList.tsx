@@ -1,16 +1,6 @@
 import { useTodos } from "../../hooks/useToDo";
 import TodoItem from "./TodoItem";
 
-// type TodoListProps = {
-//   state: TodoItemState[];
-//   onToggleItem: (
-//     id: number,
-//     event: React.ChangeEvent<HTMLInputElement>
-//   ) => void;
-//   onDeleteItem: (id: number) => void;
-//   onUpdateItem: (id: number, title: string) => void;
-// };
-
 function TodoList() {
   const { functionalState } = useTodos();
 

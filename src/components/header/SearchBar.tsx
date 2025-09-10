@@ -5,7 +5,7 @@ function SearchBar() {
   const inputState = fullState.length === 0;
 
   return (
-    <div className="flex-grow mr-4">
+    <div className="grow mr-4">
       <input
         disabled={inputState}
         id="search"
