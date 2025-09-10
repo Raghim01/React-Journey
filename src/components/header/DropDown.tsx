@@ -31,7 +31,7 @@ export default function DropDownMenu() {
   }, []);
 
   return (
-    <div ref={dropdownRef} className="relative w-48">
+    <div ref={dropdownRef} className="relative flex shrink-4 md:w-48">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between bg-purple-600 text-white text-sm font-medium px-4 py-3 rounded-md w-full shadow-sm hover:bg-purple-700 transition-colors"
@@ -41,7 +41,13 @@ export default function DropDownMenu() {
       </button>
 
       {isOpen && (
-        <div className="absolute mt-1 w-full bg-white border border-purple-300 rounded-lg shadow-lg z-10 overflow-hidden">
+        <div
+          className={`
+            absolute md:w-full bg-purple-50 border border-purple-300 rounded-lg shadow-lg z-10 overflow-hidden
+            md:top-full md:right-0 md:rounded-lg
+            fixed md:absolute bottom-0 left-0 w-full md:w-auto md:bottom-auto
+          `}
+        >
           <div
             className="px-4 py-3 cursor-pointer text-purple-700 font-medium hover:bg-purple-50 transition-colors"
             onClick={() => handleSelectedCategory(Category.All)}
