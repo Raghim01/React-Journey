@@ -1,0 +1,255 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.welcome-text span:last-child {
+  color: #54577a;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+@media (min-width: 500px) {
+  .dashboard-container.expanded {
+    margin-left: 350px;
+  }
+
+  .dashboard-container.collapsed {
+    margin-left: 80px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1500px) {
+  .dashboard-container.collapsed {
+    margin-left: 0;
+  }
+}
+
+.running-tasks {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.75rem 0 0 0.75rem;
+  width: 50%;
+  height: 100%;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.running-tasks span {
+  color: white;
+}
+
+.running-tasks span:first-child {
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+
+.running-tasks span:last-child {
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+.total-tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.progress-bar {
+  height: 4.45rem;
+  width: 4.45rem;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+
+.total-tasks-number {
+  display: flex;
+  flex-direction: column;
+}
+
+.total-tasks-number span:first-child {
+  font-weight: 500;
+  font-size: 1.75rem;
+}
+
+.total-tasks-number span:last-child {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #54577a;
+}
+
+.selector {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.selector span {
+  font-weight: 500;
+}
+
+.graph {
+  height: 9rem;
+  margin: 0 1rem 1rem 1rem;
+  background-color: white;
+  border-radius: 0.75rem;
+}
+
+.carousel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel .buttons {
+  display: flex;
+  gap: 1rem;
+  font-size: large;
+}
+
+.teachers-widget-main,
+.upcoming-tasks-main {
+  display: flex;
+  background-color: #f5f5f7;
+  border-radius: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.teachers-widget-main {
+  display: flex;
+  flex-direction: column;
+  height: 8.5rem;
+}
+
+.teachers-widget-main .teacher-info {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 70%;
+  justify-content: space-between;
+}
+
+.teacher-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.teacher-details .avatar {
+  height: 3rem;
+  width: 3rem;
+  background-color: #54577a;
+  border-radius: 50%;
+  margin-left: 1.5rem;
+}
+
+.teacher-details .name {
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher-details .info .name {
+  font-weight: 500;
+}
+
+.teacher-details .info .profession {
+  font-size: small;
+  font-weight: 400;
+  color: #54577a;
+}
+
+.teacher-info .follow {
+  font-weight: 500;
+  color: #546fff;
+  align-self: center;
+  margin-right: 1rem;
+}
+
+.teachers-widget-main .statistics {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  margin: 0 1rem 0 1rem;
+}
+
+.upcoming-tasks-main {
+  display: flex;
+  flex-direction: column;
+  height: 10.5rem;
+}
+
+.upcoming-tasks-main .info {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 0 1rem;
+}
+
+.upcoming-tasks-main .info .task-name {
+  font-weight: 500;
+}
+
+.upcoming-tasks-main .info .task-category {
+  font-size: small;
+  font-weight: 400;
+  color: #54577a;
+}
+
+.upcoming-tasks-main .time-left {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0 1rem;
+}
+
+/* 
+    Mobile styles for dashboard page
+    Screens smaller than 500px
+*/
+@media (max-width: 500px) {
+  .dashboard-container {
+    margin: 2rem 1.5rem 0rem 1.5rem;
+  }
+
+  .welcome-text span:first-child {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .tasks-widget,
+  .activity-widget,
+  .monthly-teachers-widget,
+  .upcoming-tasks-widget {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .tasks-widget {
+    flex-direction: row;
+    height: 7.75rem;
+    background-color: #141522;
+  }
+
+  .activity-widget {
+    height: 13.5rem;
+    background-color: #f5f5f7;
+  }
+}
