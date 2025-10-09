@@ -1,4 +1,3 @@
-import { CarouselButton } from "../buttons/carousel-button";
 import ProgressBar from "../progress/linear";
 import TimeIcon from "../../assets/Time Circle.svg";
 
