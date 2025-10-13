@@ -1,11 +1,10 @@
 import { CarouselButton } from "../components/buttons/carousel-button";
 import { TeacherCard } from "../components/cards/TeacherCard.tsx";
 import { UpcomingTaskCard } from "../components/cards/UpcomingTaskCard.tsx";
-// import { UpcomingTaskCard } from "../components/cards/UpcomingTaskCard";
 
-export function DashboardPage({ open }: { open: boolean }) {
+export function DashboardPage() {
   return (
-    <div className={`dashboard-container ${open ? "expanded" : "collapsed"}`}>
+    <div className="dashboard-container">
       <header className="welcome-text">
         <span className="greeting">Hi, username 👋</span>
         <span className="subtitle">Let's finish your tasks for today!</span>

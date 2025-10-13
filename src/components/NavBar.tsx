@@ -1,7 +1,6 @@
-import NotificationIcon from "../assets/notification.svg";
-import ProfileIcon from "../assets/frame.svg";
 import navItems from "../constants/nav-items";
 import { NavItem } from "./NavItem";
+import { UserHeaderComponent } from "./common/UserHeadert";
 
 type NavBarProps = {
   handleClick: () => void;
@@ -15,14 +14,7 @@ export function NavBar({ handleClick, isOpen }: NavBarProps) {
         <div className="menu-btn" onClick={handleClick}>
           ☰
         </div>
-        <div className="profile-container">
-          <div className="notification">
-            <NotificationIcon />
-          </div>
-          <div className="profile">
-            <ProfileIcon />
-          </div>
-        </div>
+        <UserHeaderComponent label="" />
       </div>
 
       <div className={`navbar ${isOpen ? "open" : "closed"}`}>

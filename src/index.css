@@ -1,5 +1,7 @@
 @import "./styles/nav-bar.css";
 @import "./styles/dashboard.css";
+@import "./styles/common.css";
+@import "./styles/tasks.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -18,4 +20,25 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+}
+
+@media (min-width: 500px) {
+  .content.expanded {
+    margin-left: 350px;
+  }
+
+  .content.collapsed {
+    margin-left: 80px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1500px) {
+  .content.collapsed {
+    margin-left: 0;
+  }
+}
+
+.content {
+  height: 100%;
+  transition: margin-left 0.3s ease;
 }

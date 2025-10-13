@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { NavBar } from "./components/NavBar";
-import { DashboardPage } from "./pages/DashboardPage";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
+  function handleToggleMenu() {
+    setIsOpen((prev) => !prev);
+  }
 
   return (
-    <div className="app-container">
-      <NavBar handleClick={handleClick} isOpen={isOpen} />
-      <DashboardPage open={isOpen} />
+    <div>
+      <NavBar handleClick={handleToggleMenu} isOpen={isOpen} />
+
+      <main className={`content ${isOpen ? "expanded" : "collapsed"}`}>
+        <Outlet />
+      </main>
     </div>
   );
 }

@@ -1,0 +1,5 @@
+@media (max-width: 500px) {
+  .tasks .user-head-component {
+    display: none;
+  }
+}

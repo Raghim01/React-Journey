@@ -1,0 +1,38 @@
+.user-head-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.user-head-component span {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.details {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.notification,
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid #f5f5f7;
+}
+
+.search-and-filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.25rem 0 1.25rem;
+}
+
+.dropdown-filters {
+  display: flex;
+  gap: 1.5rem;
+}

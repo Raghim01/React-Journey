@@ -1,26 +1,7 @@
-@media (min-width: 500px) {
-  .dashboard-container.expanded {
-    margin-left: 350px;
-  }
-
-  .dashboard-container.collapsed {
-    margin-left: 80px;
-  }
-}
-
-@media (min-width: 500px) and (max-width: 1500px) {
-  .dashboard-container.collapsed {
-    margin-left: 0;
-  }
-}
-
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
   flex-grow: 1;
-  transition: margin-left 0.3s ease;
-  margin: 1.5rem;
   gap: 1.5rem;
 }
 
