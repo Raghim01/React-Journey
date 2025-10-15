@@ -9,7 +9,16 @@ export function SearchBar() {
       sx={{
         display: "flex",
         alignItems: "center",
-        width: 400,
+        width: {
+          xs: "95%",
+          sm: "400px",
+          md: "600px",
+          lg: "800px",
+        },
+        margin: {
+          xs: "0 2.5%",
+          sm: 0,
+        },
         height: 50,
         borderRadius: "12px",
         border: "1px solid #E0E0E0",

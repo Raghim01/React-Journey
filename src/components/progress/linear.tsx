@@ -4,9 +4,9 @@ export default function ProgressBar() {
   const progress = 75;
 
   return (
-    <Box sx={{ width: "100%", padding: "0 1rem", marginTop: "1rem" }}>
+    <Box sx={{ width: "100%" }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography fontFamily="Montserrat" fontWeight={400}>
+        <Typography fontFamily="Montserrat" fontWeight={500}>
           Progress
         </Typography>
         <Typography fontFamily="Montserrat" color="#546FFF">

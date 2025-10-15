@@ -1,0 +1,35 @@
+.task-card {
+  padding: 1rem;
+  border-radius: 0.65rem;
+  background-color: var(--mobile-card-bg);
+}
+
+.task-card .preview {
+  height: 7rem;
+  width: 100%;
+  border-radius: 0.65rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.task-card .description {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.task-card .description .title {
+  font-weight: 500;
+}
+
+.task-card .description .subtitle {
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.task-card .time {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
