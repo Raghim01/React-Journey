@@ -1,20 +1,21 @@
 import ProgressBar from "../progress/linear";
 import TimeIcon from "../../assets/Time Circle.svg";
 import TaskImage from "../../assets/task.jpg";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 export function TaskCard() {
   return (
-    <div className="task-card">
-      <img className="preview" src={TaskImage} alt="Task"></img>
-      <div className="description">
-        <span className="title">Some Title</span>
-        <span className="subtitle">Some Subtitle</span>
-      </div>
+    <Card className="task-card">
+      <CardMedia image={TaskImage} className="preview" title="task image" />
+      <CardContent className="description">
+        <Typography className="title">Some Title</Typography>
+        <Typography className="subtitle">Some Subtitle</Typography>
+      </CardContent>
       <ProgressBar />
-      <div className="time">
+      <CardContent className="time">
         <TimeIcon />
-        <span>Time Left</span>
-      </div>
-    </div>
+        <Typography>Time Left</Typography>
+      </CardContent>
+    </Card>
   );
 }

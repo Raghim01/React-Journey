@@ -20,56 +20,13 @@
   gap: 2rem;
 }
 
-.content .main .carousel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.content .main .carousel span {
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-/* Mobile - single column */
-.content .main .time .task-cards,
-.content .main .new .task-cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
 /* Desktop */
 @media (min-width: 600px) {
   .tasks .user-head-component {
     display: flex;
   }
-}
 
-/* Tablet - 2 columns */
-@media (min-width: 768px) {
-  .content .main .time .task-cards,
-  .content .main .new .task-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-/* Desktop - 3 columns */
-@media (min-width: 1024px) {
-  .content .main .time .task-cards,
-  .content .main .new .task-cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-/* Large Desktop - 4 columns */
-@media (min-width: 1440px) {
-  .content .main .time .task-cards,
-  .content .main .new .task-cards {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
+  /* .tasks .content {
+    padding: 2rem 3rem;
+  } */
 }

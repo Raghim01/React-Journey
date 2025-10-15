@@ -3,6 +3,7 @@
 @import "./styles/common.css";
 @import "./styles/tasks.css";
 @import "./styles/cards.css";
+@import "./styles/carousel.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -20,7 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 @media (min-width: 500px) {

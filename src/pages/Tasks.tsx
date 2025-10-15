@@ -1,5 +1,4 @@
-import { CarouselButton } from "../components/buttons/carousel-button";
-import { TaskCard } from "../components/cards/TaskCard";
+import { Carousel } from "../components/Carousel";
 import { SearchAndFilter } from "../components/common/SearchFilter";
 import { UserHeaderComponent } from "../components/common/UserHeadert";
 
@@ -13,22 +12,10 @@ export function Tasks() {
       <div className="content">
         <div className="main">
           <div className="time">
-            <CarouselButton label="Time Limit" />
-            <div className="task-cards">
-              <TaskCard />
-              <TaskCard />
-              <TaskCard />
-              <TaskCard />
-            </div>
+            <Carousel label="Time Limit"></Carousel>
           </div>
           <div className="new">
-            <CarouselButton label="New Tasks" />
-            <div className="task-cards">
-              <TaskCard />
-              <TaskCard />
-              <TaskCard />
-              <TaskCard />
-            </div>
+            <Carousel label="New Tasks"></Carousel>
           </div>
         </div>
       </div>
