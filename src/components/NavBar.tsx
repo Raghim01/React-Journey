@@ -1,6 +1,8 @@
-import navItems from "../constants/nav-items";
+import { Box } from "@mui/material";
+import { muiIcons } from "../constants/nav-items";
 import { NavItem } from "./NavItem";
-import { UserHeaderComponent } from "./common/UserHeadert";
+import { UserHeaderComponent } from "./common/UserHeader";
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 
 type NavBarProps = {
   handleClick: () => void;
@@ -19,13 +21,31 @@ export function NavBar({ handleClick, isOpen }: NavBarProps) {
 
       <div className={`navbar ${isOpen ? "open" : "closed"}`}>
         <div className="logo-container">
-          <img src="src/assets/book-logo.svg" alt="logo" className="logo" />
+          <Box
+            sx={{
+              height: 40,
+              width: 40,
+              borderRadius: "0.75rem",
+              backgroundColor: "#546FFF",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <ImportContactsIcon
+              sx={{
+                color: "white",
+
+                alignSelf: "center",
+              }}
+            />
+          </Box>
+
           <span>Dashboard</span>
         </div>
 
         <div className="nav-items">
-          {navItems.map(({ src, label, path }) => (
-            <NavItem key={label} src={src} label={label} path={path} />
+          {muiIcons.map(({ icon, label, path }) => (
+            <NavItem key={path} icon={icon} label={label} path={path} />
           ))}
         </div>
 

@@ -1,5 +1,5 @@
 import ProgressBar from "../progress/linear";
-import TimeIcon from "../../assets/Time Circle.svg";
+import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import TaskImage from "../../assets/task.jpg";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
@@ -13,7 +13,7 @@ export function TaskCard() {
       </CardContent>
       <ProgressBar />
       <CardContent className="time">
-        <TimeIcon />
+        <AccessTimeOutlinedIcon style={{ fontSize: "medium" }} />
         <Typography>Time Left</Typography>
       </CardContent>
     </Card>

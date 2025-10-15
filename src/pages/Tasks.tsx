@@ -1,6 +1,6 @@
 import { Carousel } from "../components/Carousel";
 import { SearchAndFilter } from "../components/common/SearchFilter";
-import { UserHeaderComponent } from "../components/common/UserHeadert";
+import { UserHeaderComponent } from "../components/common/UserHeader";
 
 export function Tasks() {
   return (

@@ -1,5 +1,5 @@
 import ProgressBar from "../progress/linear";
-import TimeIcon from "../../assets/Time Circle.svg";
+import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 
 export function UpcomingTaskCard() {
   return (
@@ -10,7 +10,7 @@ export function UpcomingTaskCard() {
       </div>
       <ProgressBar />
       <div className="time-left">
-        <TimeIcon />
+        <AccessTimeOutlinedIcon style={{ fontSize: "medium" }} />
         <span>Time Left</span>
       </div>
     </div>
