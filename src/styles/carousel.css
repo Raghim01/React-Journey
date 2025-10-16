@@ -4,18 +4,11 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  /* margin-top: 1rem; */
-  /* position: relative; */
 }
 
 .carousel-container {
   flex: 1;
   overflow: hidden;
-}
-
-.carousel-btn {
-  flex-shrink: 0;
-  z-index: 10;
 }
 
 .carousel-wrapper .task-cards {
@@ -24,7 +17,7 @@
   grid-template-columns: 1fr;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   .carousel-wrapper {
     flex-direction: row;
   }
@@ -32,17 +25,9 @@
   .carousel-btn {
     margin: 0.5rem 0 !important;
   }
-
-  .carousel-wrapper .task-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .carousel-container {
-    padding: 0;
-  }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 601px) and (max-width: 1023px) {
   .carousel-wrapper .task-cards {
     grid-template-columns: repeat(2, 1fr);
   }

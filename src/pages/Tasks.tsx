@@ -1,6 +1,7 @@
 import { Carousel } from "../components/Carousel";
 import { SearchAndFilter } from "../components/common/SearchFilter";
 import { UserHeaderComponent } from "../components/common/UserHeader";
+import { TaskCard } from "../components/cards/TaskCard";
 
 export function Tasks() {
   return (
@@ -12,10 +13,14 @@ export function Tasks() {
       <div className="content">
         <div className="main">
           <div className="time">
-            <Carousel label="Time Limit"></Carousel>
+            <Carousel label="Time Limit" length={10}>
+              <TaskCard />
+            </Carousel>
           </div>
           <div className="new">
-            <Carousel label="New Tasks"></Carousel>
+            <Carousel label="Time Limit" length={10}>
+              <TaskCard />
+            </Carousel>{" "}
           </div>
         </div>
       </div>

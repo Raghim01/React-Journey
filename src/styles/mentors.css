@@ -1,0 +1,34 @@
+.mentors {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mentors .header {
+  display: flex;
+  flex-direction: column;
+}
+
+.mentors .content {
+  flex: 1;
+  background-color: var(--bg-light);
+  padding: 1rem 1.5rem 2rem 1.5rem;
+}
+
+.mentors .content .mentors-list {
+  display: flex;
+  flex-direction: column;
+  grid-area: 1.5rem;
+}
+
+.mentors .content .mentors-list .mentors-list-label {
+  font-weight: 500;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mentors .content .mentors-list .mentors-list-content {
+  display: grid;
+  gap: 1rem;
+}

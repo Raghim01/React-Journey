@@ -36,3 +36,58 @@
   gap: 0.25rem;
   padding: 0 !important;
 }
+
+/* Mentor Card */
+.mentor-card {
+  padding: 1rem !important;
+  border-radius: 0.65rem !important;
+  box-shadow: none !important;
+  margin-left: 0 !important;
+}
+
+.mentor-card .content {
+  background-color: white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 16px !important;
+}
+
+.mentor-card .content .MuiTypography-root {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.mentor-card .MuiCardHeader-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.mentor-card .MuiCardHeader-subheader {
+  font-size: 0.8rem;
+}
+
+.mentor-card .content .tasks,
+.mentor-card .content .stars {
+  display: flex !important;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  gap: 0.5rem;
+  height: fit-content;
+  min-height: 0 !important;
+  margin-left: 0 !important;
+}
+
+.mentor-card .content .tasks .MuiTypography-root,
+.mentor-card .content .stars .MuiTypography-root {
+  font-size: 0.8rem !important;
+}
+
+.mentor-card .content .tasks .MuiSvgIcon-root,
+.mentor-card .content .stars .MuiSvgIcon-root {
+  font-size: 1.25rem !important;
+}

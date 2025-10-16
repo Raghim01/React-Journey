@@ -5,40 +5,22 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Slide from "@mui/material/Slide";
 import Stack from "@mui/material/Stack";
-import { TaskCard } from "./cards/TaskCard";
+import { useCardsPerPage } from "../hooks/useCardsPerPage";
 
 interface CarouselProps {
   label: string;
-  children?: React.ReactNode;
+  children: React.ReactElement;
+  length: number;
 }
 
-// Hook to get cards per page based on screen size
-function useCardsPerPage() {
-  const [cardsPerPage, setCardsPerPage] = useState(1);
+// TODO: make carousel generic, avoid current hardconding
+// type CarouselProps<T> = {
+//   label: string;
+//   items: T[];
+//   renderCard: (item: T) => React.ReactNode;
+// }
 
-  useEffect(() => {
-    const updateCardsPerPage = () => {
-      const width = window.innerWidth;
-      if (width >= 1440) {
-        setCardsPerPage(5);
-      } else if (width >= 1024) {
-        setCardsPerPage(3);
-      } else if (width >= 768) {
-        setCardsPerPage(2);
-      } else {
-        setCardsPerPage(1);
-      }
-    };
-
-    updateCardsPerPage();
-    window.addEventListener("resize", updateCardsPerPage);
-    return () => window.removeEventListener("resize", updateCardsPerPage);
-  }, []);
-
-  return cardsPerPage;
-}
-
-export function Carousel({ label, children }: CarouselProps) {
+export function Carousel({ label, children, length }: CarouselProps) {
   const [currentPage, setCurrentPage] = useState(0);
   const [slideDirection, setSlideDirection] = useState<
     "right" | "left" | undefined
@@ -46,10 +28,9 @@ export function Carousel({ label, children }: CarouselProps) {
 
   const cardsPerPage = useCardsPerPage();
 
-  const cardsToDisplay = children
-    ? (React.Children.toArray(children) as React.ReactElement[])
-    : Array.from({ length: 10 }, (_, i) => <TaskCard key={i} />);
-
+  const cardsToDisplay = Array.from({ length }, (_, i) =>
+    React.cloneElement(children, { key: i })
+  );
   const totalPages = Math.ceil(cardsToDisplay.length / cardsPerPage);
 
   const handleNextPage = () => {
@@ -70,7 +51,14 @@ export function Carousel({ label, children }: CarouselProps) {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          mb: 1.5,
+          alignItems: "center",
+        }}
+      >
         <Typography sx={{ fontWeight: 500, fontSize: "1.25rem" }}>
           {label}
         </Typography>
