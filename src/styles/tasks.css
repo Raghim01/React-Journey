@@ -10,10 +10,6 @@
   padding: 1rem 1.5rem 2rem 1.5rem;
 }
 
-.tasks .user-head-component {
-  display: none;
-}
-
 .tasks .content .main {
   display: flex;
   flex-direction: column;
@@ -22,11 +18,4 @@
 
 /* Desktop */
 @media (min-width: 600px) {
-  .tasks .user-head-component {
-    display: flex;
-  }
-
-  /* .tasks .content {
-    padding: 2rem 3rem;
-  } */
 }

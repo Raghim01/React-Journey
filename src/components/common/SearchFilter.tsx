@@ -1,5 +1,5 @@
-import { FilterPicker } from "../filers/FilterPicker";
-import { SearchBar } from "../filers/SearchBar";
+import { FilterPicker } from "../filters/FilterPicker";
+import { SearchBar } from "../filters/SearchBar";
 import CategoryIcon from "../../assets/category.svg";
 import SortIcon from "../../assets/sort.svg";
 

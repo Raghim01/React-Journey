@@ -154,3 +154,34 @@
   min-width: 0;
   width: 100%;
 }
+
+/* CurrentChatPersonCard - have to be updated for mobile first aproach */
+
+.current-chat-user {
+  box-shadow: none !important;
+  display: flex;
+  gap: 0.75rem;
+  border-radius: 0 !important;
+}
+
+.current-chat-user .current-chat-user-avatar {
+  display: flex;
+  align-self: center;
+  height: 3rem;
+  width: 3rem;
+  margin: 1.5rem 0 1.5rem 2.5rem;
+  border-radius: 50%;
+}
+
+.current-chat-user .current-chat-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.current-chat-user .current-chat-user-details .badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

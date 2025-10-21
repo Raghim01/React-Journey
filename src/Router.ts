@@ -26,6 +26,16 @@ export const router = createBrowserRouter([
       {
         path: "messages",
         Component: Messages,
+        children: [
+          {
+            index: true,
+            Component: Messages,
+          },
+          {
+            path: ":chatId",
+            Component: Messages,
+          },
+        ],
       },
       {
         path: "settings",

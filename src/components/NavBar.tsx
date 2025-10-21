@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { muiIcons } from "../constants/nav-items";
+import { routes } from "../constants/nav-items";
 import { NavItem } from "./NavItem";
 import { UserHeaderComponent } from "./common/UserHeader";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
@@ -44,7 +44,7 @@ export function NavBar({ handleClick, isOpen }: NavBarProps) {
         </div>
 
         <div className="nav-items">
-          {muiIcons.map(({ icon, label, path }) => (
+          {routes.map(({ icon, label, path }) => (
             <NavItem key={path} icon={icon} label={label} path={path} />
           ))}
         </div>

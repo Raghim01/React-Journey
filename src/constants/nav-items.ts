@@ -4,7 +4,7 @@ import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendarOutl
 import MessageIcon from "@mui/icons-material/MessageOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
-export const muiIcons = [
+export const routes = [
   {
     icon: ImportContactsIcon,
     label: "Overview",
