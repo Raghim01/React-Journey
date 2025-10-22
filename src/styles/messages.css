@@ -2,29 +2,54 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  /* overflow: hidden; */
+}
+
+/* Maybe */
+/* .messages .header {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  border-bottom: 1px solid #ebebeb;
+} */
+
+/* Add to your existing CSS */
+
+.messages.mobile-chat-view {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
-.messages .messages-content {
+.individual-chat-container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+}
+
+.chat-container-content {
   flex: 1;
+  overflow-y: auto;
+  background-color: #f5f4f4;
+  padding: 0.5rem 1rem;
   min-height: 0;
 }
 
-/* All chats section*/
+.chat-input-wrapper {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
 
-.chats .chats-search {
+.chats-search {
   margin-bottom: 0.75rem;
   padding: 0.5rem;
   display: flex;
   justify-content: center;
   flex-shrink: 0;
-}
-
-.chats .chats-content {
-  display: flex;
-  flex-direction: column;
 }
 
 .chats .chats-divider {
@@ -42,7 +67,14 @@
     min-height: 0;
   }
 
-  .messages-content .messages-chat-section {
+  .messages .no-chat-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .messages-content .individual-chat-container {
     grid-column: 2 / 3;
     background-color: aliceblue;
     display: flex;
@@ -51,7 +83,7 @@
     min-height: 0;
   }
 
-  .messages-chat-section .messages-chat-section-content {
+  .individual-chat-container.chat-container-content {
     flex: 1;
     overflow-y: auto;
     min-height: 0;

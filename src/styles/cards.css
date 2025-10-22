@@ -92,6 +92,7 @@
   font-size: 1.25rem !important;
 }
 
+/* Chat Card*/
 .chat-card {
   display: flex;
   margin: 1rem 1.25rem;
@@ -155,8 +156,7 @@
   width: 100%;
 }
 
-/* CurrentChatPersonCard - have to be updated for mobile first aproach */
-
+/* CurrentChatPersonCard */
 .current-chat-user {
   box-shadow: none !important;
   display: flex;
@@ -169,7 +169,7 @@
   align-self: center;
   height: 3rem;
   width: 3rem;
-  margin: 1.5rem 0 1.5rem 2.5rem;
+  margin: 1.5rem 0;
   border-radius: 50%;
 }
 
@@ -184,4 +184,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (min-width: 900px) {
+  .current-chat-user .current-chat-user-avatar {
+    margin: 1.5rem 0 1.5rem 2.5rem;
+  }
 }

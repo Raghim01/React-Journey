@@ -1,5 +1,4 @@
 import { Box, Divider } from "@mui/material";
-import { SearchBar } from "./filters/SearchBar";
 import { ChatCard } from "./cards/ChatCard";
 
 interface AllChatsProps {
@@ -16,9 +15,6 @@ interface AllChatsProps {
 export function AllChats({ data, onChatSelect }: AllChatsProps) {
   return (
     <Box className="chats">
-      <Box className="chats-search">
-        <SearchBar />
-      </Box>
       <Box className="chats-content">
         {data.map((chat, index) => {
           return (

@@ -1,23 +1,8 @@
-import { useState } from "react";
-import { NavBar } from "./components/NavBar";
-import { Outlet } from "react-router-dom";
+import { RouterProvider } from "react-router";
+import { router } from "./Router";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleToggleMenu() {
-    setIsOpen((prev) => !prev);
-  }
-
-  return (
-    <div>
-      <NavBar handleClick={handleToggleMenu} isOpen={isOpen} />
-
-      <main className={`content ${isOpen ? "expanded" : "collapsed"}`}>
-        <Outlet />
-      </main>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

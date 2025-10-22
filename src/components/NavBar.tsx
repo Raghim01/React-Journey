@@ -11,7 +11,7 @@ type NavBarProps = {
 
 export function NavBar({ handleClick, isOpen }: NavBarProps) {
   return (
-    <>
+    <div>
       <div className="menu-container">
         <div className="menu-btn" onClick={handleClick}>
           ☰
@@ -53,6 +53,6 @@ export function NavBar({ handleClick, isOpen }: NavBarProps) {
           {isOpen ? "⬅️" : "➡️"}
         </div>
       </div>
-    </>
+    </div>
   );
 }
