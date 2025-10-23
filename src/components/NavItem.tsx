@@ -1,20 +1,42 @@
-import type { SvgIconTypeMap } from "@mui/material";
-import type { OverridableComponent } from "@mui/material/OverridableComponent";
+import {
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import { NavLink } from "react-router";
 
 type NavItemProps = {
-  icon: OverridableComponent<SvgIconTypeMap<object, "svg">> & {
-    muiName: string;
-  };
+  icon: React.ReactElement;
   label: string;
   path: string;
+  isOpen: boolean;
 };
 
-export function NavItem({ icon: Icon, label, path }: NavItemProps) {
+export function NavItem({ icon: Icon, label, path, isOpen }: NavItemProps) {
   return (
-    <NavLink to={path} className="nav-item">
-      <Icon style={{ color: "#8E92BC" }} />
-      <span>{label}</span>
+    <NavLink to={path}>
+      <ListItem
+        key={path}
+        sx={{
+          borderRadius: 2,
+          mx: isOpen ? 4 : "auto",
+          fontSize: "1.25rem",
+        }}
+      >
+        <ListItemButton>
+          <ListItemIcon
+            sx={{
+              minWidth: 0,
+              mr: isOpen ? 2 : "auto",
+              justifyContent: "center",
+            }}
+          >
+            {Icon}
+          </ListItemIcon>
+          {isOpen && <ListItemText primary={label} />}
+        </ListItemButton>
+      </ListItem>
     </NavLink>
   );
 }
