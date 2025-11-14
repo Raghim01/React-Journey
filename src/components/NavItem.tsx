@@ -18,6 +18,7 @@ export function NavItem({ icon: Icon, label, path, isOpen }: NavItemProps) {
     <NavLink to={path}>
       <ListItem
         key={path}
+        // className="nav-item"
         sx={{
           borderRadius: 2,
           mx: isOpen ? 4 : "auto",

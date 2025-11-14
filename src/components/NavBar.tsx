@@ -1,113 +1,134 @@
 import {
   Box,
+  CssBaseline,
   Drawer,
-  List,
   IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  styled,
   Toolbar,
-  Typography,
+  useTheme,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import MuiAppBar, {
+  type AppBarProps as MuiAppBarProps,
+} from "@mui/material/AppBar";
+import { useState } from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { routes } from "../constants/nav-items";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import { NavItem } from "./NavItem";
-type NavBarProps = {
-  handleClick: () => void;
-  isOpen: boolean;
-};
+import { NavLink } from "react-router";
 
-const drawerWidth = 350;
-const collapsedWidth = 80;
+const drawerWidth = 240;
 
-export function NavBar({ handleClick, isOpen }: NavBarProps) {
+interface AppBarProps extends MuiAppBarProps {
+  open?: boolean;
+}
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== "open",
+})<AppBarProps>(({ theme }) => ({
+  transition: theme.transitions.create(["margin", "width"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  variants: [
+    {
+      props: ({ open }) => open,
+      style: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: `${drawerWidth}px`,
+        transition: theme.transitions.create(["margin", "width"], {
+          easing: theme.transitions.easing.easeOut,
+          duration: theme.transitions.duration.enteringScreen,
+        }),
+      },
+    },
+  ],
+}));
+
+const DrawerHeader = styled("div")(({ theme }) => ({
+  marginTop: "0.25rem",
+  display: "flex",
+  alignItems: "center",
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: "flex-end",
+}));
+
+export default function NavBar() {
+  const theme = useTheme();
+
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <>
+    <Box className="nav-bar">
+      <CssBaseline />
+      <AppBar open={open} className="app-bar">
+        <Toolbar>
+          <IconButton
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={`icon-button ${open ? "hidden" : "open"}`}
+          >
+            <MenuIcon className="menu-icon" />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
       <Drawer
-        variant="permanent"
-        open={isOpen}
         sx={{
-          width: isOpen ? drawerWidth : collapsedWidth,
+          // width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            width: isOpen ? drawerWidth : collapsedWidth,
+            width: drawerWidth,
             boxSizing: "border-box",
-            borderRight: "2px solid #f5f5f7",
-            transition: "width 0.3s ease-in-out",
-            backgroundColor: "#ffffff",
-            overflow: "hidden",
-            display: "flex",
-            flexDirection: "column",
-            zIndex: 1200,
           },
         }}
+        variant="persistent"
+        anchor="left"
+        open={open}
       >
-        <Toolbar
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 1,
-            mt: 2,
-            px: 2,
-          }}
-        >
-          <Box
-            sx={{
-              height: 40,
-              width: 40,
-              minHeight: 40,
-              minWidth: 40,
-              flexShrink: 0,
-              borderRadius: "0.75rem",
-              backgroundColor: "#546FFF",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <ImportContactsIcon sx={{ color: "white" }} />
-          </Box>
-
-          {isOpen && (
-            <Typography
-              variant="h5"
-              fontWeight={600}
-              noWrap
-              sx={{ flexShrink: 0 }}
-            >
-              Dashboard
-            </Typography>
-          )}
-        </Toolbar>
-
-        <List
-          sx={{
-            mt: 6,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: isOpen ? "flex-start" : "center",
-          }}
-        >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <List>
           {routes.map(({ icon: Icon, label, path }) => (
-            <NavItem icon={Icon} label={label} path={path} isOpen={isOpen} />
+            <NavLink
+              to={path}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <ListItem key={path} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>{Icon} </ListItemIcon>
+                  <ListItemText
+                    primary={label}
+                    style={{ textDecoration: "none" }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
           ))}
         </List>
-
-        <IconButton
-          onClick={handleClick}
-          sx={{
-            width: 40,
-            height: 40,
-            borderRadius: "50%",
-            backgroundColor: "white",
-            alignSelf: "center",
-            marginTop: "auto", // This pushes it to the bottom
-            marginBottom: 2,
-          }}
-        >
-          {isOpen ? <ChevronLeftIcon /> : <ChevronRightRoundedIcon />}
-        </IconButton>
       </Drawer>
-    </>
+    </Box>
   );
 }
