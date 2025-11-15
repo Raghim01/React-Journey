@@ -4,12 +4,9 @@ import {
   Drawer,
   IconButton,
   List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   styled,
   Toolbar,
+  Typography,
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -19,36 +16,19 @@ import MuiAppBar, {
 import { useState } from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import Logo from "./../../src/assets/book-square.svg";
 import { routes } from "../constants/nav-items";
-import { NavLink } from "react-router";
+import { NavItem } from "./NavItem";
 
-const drawerWidth = 240;
+const drawerWidth = 320;
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})<AppBarProps>(({ theme }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  variants: [
-    {
-      props: ({ open }) => open,
-      style: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: `${drawerWidth}px`,
-        transition: theme.transitions.create(["margin", "width"], {
-          easing: theme.transitions.easing.easeOut,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-    },
-  ],
-}));
+const AppBar = styled(MuiAppBar)<AppBarProps>(() => ({}));
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   marginTop: "0.25rem",
@@ -57,7 +37,8 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
+  justifyContent: "space-between",
+  marginBottom: "2rem",
 }));
 
 export default function NavBar() {
@@ -77,7 +58,7 @@ export default function NavBar() {
     <Box className="nav-bar">
       <CssBaseline />
       <AppBar open={open} className="app-bar">
-        <Toolbar>
+        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -86,6 +67,28 @@ export default function NavBar() {
           >
             <MenuIcon className="menu-icon" />
           </IconButton>
+          <Box style={{ display: "flex", gap: "1.5rem", marginLeft: "auto" }}>
+            <IconButton>
+              <NotificationsNoneOutlinedIcon
+                sx={{
+                  height: "2.5rem",
+                  width: "2.5rem",
+                  fontSize: "1.25rem",
+                  color: "#383838ff",
+                }}
+              />
+            </IconButton>
+            <IconButton>
+              <PersonOutlineOutlinedIcon
+                sx={{
+                  height: "2.5rem",
+                  width: "2.5rem",
+                  fontSize: "1.25rem",
+                  color: "#383838ff",
+                }}
+              />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -97,11 +100,20 @@ export default function NavBar() {
             boxSizing: "border-box",
           },
         }}
-        variant="persistent"
+        variant="temporary"
         anchor="left"
         open={open}
+        onClose={handleDrawerClose}
+        disableScrollLock
       >
         <DrawerHeader>
+          <Box style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <Logo style={{ width: 40, height: 40, marginLeft: "1.5rem" }} />
+            <Typography style={{ fontWeight: "500", fontSize: "2rem" }}>
+              Dashboard
+            </Typography>
+          </Box>
+
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
@@ -110,22 +122,17 @@ export default function NavBar() {
             )}
           </IconButton>
         </DrawerHeader>
-        <List>
+
+        <List
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            margin: "0 2rem",
+          }}
+        >
           {routes.map(({ icon: Icon, label, path }) => (
-            <NavLink
-              to={path}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <ListItem key={path} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>{Icon} </ListItemIcon>
-                  <ListItemText
-                    primary={label}
-                    style={{ textDecoration: "none" }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </NavLink>
+            <NavItem icon={Icon} label={label} path={path} />
           ))}
         </List>
       </Drawer>

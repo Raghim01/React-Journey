@@ -1,13 +1,11 @@
 import { Carousel } from "../components/Carousel";
 import { SearchAndFilter } from "../components/common/SearchFilter";
-import { UserHeaderComponent } from "../components/common/UserHeader";
 import { TaskCard } from "../components/cards/TaskCard";
 
 export function Tasks() {
   return (
     <div className="tasks">
       <div>
-        <UserHeaderComponent label="Eplore Tasks" />
         <SearchAndFilter />
       </div>
       <div className="content">

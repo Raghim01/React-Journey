@@ -10,6 +10,7 @@
   position: static;
   height: 4rem;
   box-shadow: none !important;
+  width: 100%;
 }
 
 .app-bar .icon-button.open {

@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { UserHeaderComponent } from "../components/common/UserHeader";
 import { SearchAndFilter } from "../components/common/SearchFilter";
 import { MentorCard } from "../components/cards/MentorCard";
 import { Carousel } from "../components/Carousel";
@@ -192,7 +191,6 @@ export function Mentors() {
   return (
     <Box className="mentors">
       <Box className="header">
-        <UserHeaderComponent label="Eplore Tasks" />
         <SearchAndFilter />
       </Box>
       <Box className="content">

@@ -49,6 +49,7 @@ export function FilterPicker({ label, menuItems, icon }: FilterPickerProps) {
       </Button>
 
       <Menu
+        disableScrollLock
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}

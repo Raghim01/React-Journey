@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { UserHeaderComponent } from "../components/common/UserHeader";
 import { AllChats } from "../components/AllChats";
 import { IndividualChat } from "../components/IndividualChat";
 import { useEffect, useState } from "react";
@@ -61,7 +60,6 @@ export function Messages() {
   return (
     <Box className="messages">
       <Box className="header">
-        <UserHeaderComponent label="Messages" />
         <Box className="chats-search">
           <SearchBar />
         </Box>

@@ -6,27 +6,27 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
 export const routes = [
   {
-    icon: <ImportContactsIcon />,
+    icon: ImportContactsIcon,
     label: "Overview",
     path: "/",
   },
   {
-    icon: <GridViewIcon />,
+    icon: GridViewIcon,
     label: "Task",
     path: "/tasks",
   },
   {
-    icon: <PermContactCalendarIcon />,
+    icon: PermContactCalendarIcon,
     label: "Mentors",
     path: "/mentors",
   },
   {
-    icon: <MessageIcon />,
+    icon: MessageIcon,
     label: "Message",
     path: "/messages",
   },
   {
-    icon: <SettingsOutlinedIcon />,
+    icon: SettingsOutlinedIcon,
     label: "Settings",
     path: "/settings",
   },
