@@ -26,6 +26,25 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif !important;
 }
+
+/* html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+} */
+
 /* 
 @media (min-width: 500px) {
   .content.expanded {
