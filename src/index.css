@@ -27,7 +27,7 @@
   font-family: "Montserrat", sans-serif !important;
 }
 
-/* html,
+html,
 body,
 #root {
   height: 100%;
@@ -43,26 +43,4 @@ body,
 .content {
   flex: 1;
   overflow-y: auto;
-} */
-
-/* 
-@media (min-width: 500px) {
-  .content.expanded {
-    margin-left: 350px;
-  }
-
-  .content.collapsed {
-    margin-left: 80px;
-  }
-} */
-
-/* @media (min-width: 501px) and (max-width: 1500px) {
-  .content.collapsed {
-    margin-left: 0;
-  }
-} */
-
-/* .content {
-  height: 100%;
-  transition: margin-left 0.3s ease;
-} */
+}

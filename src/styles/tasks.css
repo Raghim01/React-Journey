@@ -1,21 +1,29 @@
 .tasks {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.tasks .search-and-filters {
+  padding: 0 1rem;
 }
 
 .tasks .content {
-  flex: 1;
-  background-color: var(--bg-light);
-  padding: 1rem 1.5rem 2rem 1.5rem;
-}
-
-.tasks .content .main {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background-color: var(--bg-light);
+  padding: 0 1rem 1rem 1rem;
+  margin-top: 1rem;
 }
 
-/* Desktop */
-@media (min-width: 600px) {
+.tasks .content .carousel-component {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }

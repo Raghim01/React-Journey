@@ -50,13 +50,20 @@ export function Carousel({ label, children, length }: CarouselProps) {
   }, [totalPages, currentPage]);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%", // ← Add this
+        minHeight: 0, // ← Add this to prevent overflow
+      }}
+    >
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mb: 1.5,
           alignItems: "center",
+          flexShrink: 0, // ← Prevent this header from shrinking
         }}
       >
         <Typography sx={{ fontWeight: 500, fontSize: "1.25rem" }}>
@@ -80,14 +87,20 @@ export function Carousel({ label, children, length }: CarouselProps) {
         </Box>
       </Box>
 
-      <Box className="carousel-wrapper">
-        <Box className="carousel-container">
+      <Box
+        className="carousel-wrapper"
+        sx={{
+          flex: 1, // ← Take remaining space
+          minHeight: 0, // ← Prevent overflow
+        }}
+      >
+        <Box className="carousel-container" sx={{ height: "100%" }}>
           {Array.from({ length: totalPages }).map((_, pageIndex) => (
             <Box
               key={`page-${pageIndex}`}
               sx={{
                 width: "100%",
-                height: "100%",
+                height: "100%", // ← Ensure full height
                 display: currentPage === pageIndex ? "block" : "none",
               }}
             >
@@ -96,7 +109,11 @@ export function Carousel({ label, children, length }: CarouselProps) {
                   spacing={2}
                   direction="row"
                   className="task-cards"
-                  sx={{ width: "100%", height: "100%" }}
+                  sx={{
+                    width: "100%",
+                    height: "100%", // ← Ensure full height
+                    minHeight: 0, // ← Prevent overflow
+                  }}
                 >
                   {cardsToDisplay.slice(
                     pageIndex * cardsPerPage,
