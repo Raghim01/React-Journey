@@ -1,23 +1,48 @@
+import {
+  Avatar,
+  Card,
+  CardContent,
+  CardHeader,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import FollowIcon from "@mui/icons-material/AddSharp";
+
 export function TeacherCard() {
   return (
-    <div className="teachers-widget-main">
-      <div className="teacher-info">
-        <div className="teacher-details">
-          <div className="avatar"></div>
-          <div className="info">
-            <span className="name">Abraham Lincoln</span>
-            <span className="profession">3D Design</span>
-          </div>
-        </div>
-        <span className="follow">Followed</span>
-      </div>
-      <div className="statistics">
-        <span>32 Task</span>
-        <div className="rating">
-          <div className="stars">⭐</div>
-          <span>4.9 (510 Reviews)</span>
-        </div>
-      </div>
-    </div>
+    <Card
+      sx={{
+        boxShadow: "none",
+        border: "1px solid black",
+      }}
+    >
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <FollowIcon />
+          </IconButton>
+        }
+        title="Name Surname"
+        subheader="Speciality"
+      />
+      <CardContent
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "0rem 1rem 1rem 1rem",
+          "&:last-child": {
+            paddingBottom: "0.25rem",
+          },
+        }}
+      >
+        <Typography>Tasks</Typography>
+        <Typography>Reviews</Typography>
+      </CardContent>
+    </Card>
   );
 }

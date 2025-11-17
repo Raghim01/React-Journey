@@ -1,16 +1,20 @@
 .task-card {
+  display: flex !important;
+  flex-direction: column;
   padding: 1rem !important;
   border-radius: 0.65rem !important;
   background-color: var(--mobile-card-bg) !important;
   box-shadow: none !important;
+  height: 100%;
 }
 
 .task-card .preview {
-  height: 7rem;
   width: 100%;
   border-radius: 0.65rem;
   object-fit: cover;
   object-position: center;
+  flex-grow: 1 !important;
+  min-height: 7rem !important;
 }
 
 .task-card .description {
@@ -35,6 +39,11 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0 !important;
+}
+
+.task-card .description,
+.task-card .time {
+  flex-shrink: 0; /* prevents compression */
 }
 
 /* Mentor Card */
