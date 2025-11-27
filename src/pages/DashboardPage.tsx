@@ -1,8 +1,9 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { TeacherCard } from "../components/cards/TeacherCard.tsx";
-import { UpcomingTaskCard } from "../components/cards/UpcomingTaskCard.tsx";
 import { Carousel } from "../components/Carousel.tsx";
-import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
+import { TaskCard } from "../components/cards/TaskCard.tsx";
+import RunningTasks from "../components/RunningTasks.tsx";
+import ActivityWidget from "../components/ActivityWidget.tsx";
 
 const weeklyTasks = [
   { day: "Sun", value: 1 },
@@ -18,126 +19,79 @@ export function DashboardPage() {
   return (
     <Box
       sx={{
+        height: "100%",
+        minHeight: 0,
         display: {
           sm: "grid",
         },
         gridTemplateColumns: "2.5fr 1.5fr",
+        gridTemplateRows: "1fr",
+        backgroundColor: "#fafafaff",
       }}
     >
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
+          display: "grid",
+          gridTemplate: "1fr 1fr 3fr / 1fr",
           padding: "1rem 1rem 0rem 1rem",
+          minHeight: 0,
         }}
       >
-        <Box>
-          <Typography>Hi, username 👋</Typography>
-          <Typography>Let's finish your tasks for today!</Typography>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplate: "1fr / 1fr 2fr",
+            gap: "1.5rem",
+            flexWrap: "wrap",
+          }}
+        >
+          <RunningTasks />
+
+          <ActivityWidget data={weeklyTasks} />
         </Box>
-
-        <Box sx={{ display: "flex", gap: "1rem", margin: "1rem 0" }}>
-          <Box
-            style={{
-              border: "0.1rem solid black",
-              borderRadius: "0.5rem",
-              padding: "0.5rem",
-            }}
-          >
-            <Typography>Running Tasks</Typography>
-            <Typography>65</Typography>
-            <Box sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <Box sx={{ position: "relative", display: "inline-flex" }}>
-                <CircularProgress variant="determinate" value={75} />
-                <Box
-                  sx={{
-                    top: 0,
-                    left: 0,
-                    bottom: 0,
-                    right: 0,
-                    position: "absolute",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Typography
-                    variant="caption"
-                    component="div"
-                    sx={{ color: "text.secondary" }}
-                  >{`75%`}</Typography>
-                </Box>
-              </Box>
-              <Typography>100 Tasks</Typography>
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              flex: 1,
-              border: "1px solid black",
-              borderRadius: "0.5rem",
-              padding: "0.5rem",
-            }}
-          >
-            <Typography>Activity</Typography>
-            <ResponsiveContainer width="100%" height={100}>
-              <LineChart data={weeklyTasks}>
-                <Line
-                  type="monotone"
-                  dataKey="value"
-                  stroke="#000"
-                  strokeWidth={3}
-                  dot={{
-                    r: 4,
-                    fill: "#fff",
-                    stroke: "#3f51b5",
-                    strokeWidth: 2,
-                  }}
-                  activeDot={{ r: 6 }}
-                />
-                <Tooltip
-                  contentStyle={{
-                    background: "#000",
-                    color: "#fff",
-                    borderRadius: "6px",
-                    padding: "4px 8px",
-                    border: "none",
-                  }}
-                  formatter={(v) => [`${v} Task`, ""]}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </Box>
-        </Box>
-
-        <Box>
+        <Box sx={{ marginTop: "1rem" }}>
           <Carousel label="Monthly Mentors" length={10}>
             <TeacherCard />
           </Carousel>
         </Box>
-
-        <Box>
+        <Box
+          sx={{
+            flex: 1,
+            minHeight: 0,
+            overflowY: "auto",
+            margin: "1rem 0",
+          }}
+        >
           <Carousel label="Upcoming Tasks" length={10}>
-            <UpcomingTaskCard />
+            <TaskCard />
           </Carousel>
         </Box>
       </Box>
 
-      <Box>
-        <Typography>Today's Tasks</Typography>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr",
+          gridTemplateRows: "1fr 2fr",
+          flex: "1",
+          backgroundColor: "#F5F5F7",
+        }}
+      >
+        <Box
+          sx={{
+            borderRadius: "0.65rem",
+            margin: "1rem",
+            backgroundColor: "white",
+          }}
+        ></Box>
+        <Box
+          sx={{
+            borderRadius: "0.65rem",
+            margin: "0 1rem 1rem 1rem",
+            backgroundColor: "white",
+          }}
+        ></Box>
       </Box>
     </Box>
-
-    // <div className="dashboard-container">
-    //   <section className="activity-widget">
-    //     <div className="selector">
-    //       <span>Activity</span>
-    //       <span className="see-all">See All</span>
-    //     </div>
-    //     <div className="graph" />
-    //   </section>
-
-    // </div>
   );
 }

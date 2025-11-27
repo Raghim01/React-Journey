@@ -13,7 +13,7 @@ export function TeacherCard() {
     <Card
       sx={{
         boxShadow: "none",
-        border: "1px solid black",
+        borderRadius: "0.65rem",
       }}
     >
       <CardHeader

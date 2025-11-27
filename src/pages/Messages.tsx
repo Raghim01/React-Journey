@@ -4,7 +4,6 @@ import { IndividualChat } from "../components/IndividualChat";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useIsMobile } from "../hooks/useIsMobile";
-import { SearchBar } from "../components/filters/SearchBar";
 import { chatData } from "../constants/temp.data";
 import type { IUser } from "../interfaces/user.interface";
 
@@ -58,32 +57,35 @@ export function Messages() {
   }
 
   return (
-    <Box className="messages">
-      <Box className="header">
-        <Box className="chats-search">
-          <SearchBar />
+    <Box
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+      }}
+    >
+      <Box className="messages">
+        <Box className="messages-content">
+          <AllChats data={chatData} onChatSelect={handleChatSelect} />
+
+          {!isMobile && (
+            <Box>
+              {selectedChat && selectedUser ? (
+                <IndividualChat
+                  onBack={handleBackToChats}
+                  userData={selectedUser}
+                />
+              ) : (
+                <Box className="no-chat-content">
+                  <Typography color="textSecondary">
+                    Select a chat to start messaging
+                  </Typography>
+                </Box>
+              )}
+            </Box>
+          )}
         </Box>
-      </Box>
-
-      <Box className="messages-content">
-        <AllChats data={chatData} onChatSelect={handleChatSelect} />
-
-        {!isMobile && (
-          <Box>
-            {selectedChat && selectedUser ? (
-              <IndividualChat
-                onBack={handleBackToChats}
-                userData={selectedUser}
-              />
-            ) : (
-              <Box className="no-chat-content">
-                <Typography color="textSecondary">
-                  Select a chat to start messaging
-                </Typography>
-              </Box>
-            )}
-          </Box>
-        )}
       </Box>
     </Box>
   );
