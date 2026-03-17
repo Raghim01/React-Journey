@@ -20,7 +20,7 @@ export function DashboardPage() {
     <Box
       sx={{
         height: "100%",
-        minHeight: "100vh",
+        minHeight: 0,
         display: "grid",
         gap: { xs: "1rem", md: "1.25rem" },
         gridTemplateColumns: {
