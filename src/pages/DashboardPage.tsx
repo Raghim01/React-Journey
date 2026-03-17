@@ -20,36 +20,38 @@ export function DashboardPage() {
     <Box
       sx={{
         height: "100%",
-        minHeight: 0,
-        display: {
-          sm: "grid",
+        minHeight: "100vh",
+        display: "grid",
+        gap: { xs: "1rem", md: "1.25rem" },
+        gridTemplateColumns: {
+          xs: "1fr",
+          lg: "minmax(0, 2.5fr) minmax(18rem, 1.5fr)",
         },
-        gridTemplateColumns: "2.5fr 1.5fr",
-        gridTemplateRows: "1fr",
+        gridTemplateRows: "auto",
+        padding: { xs: "1rem", md: "1rem" },
         backgroundColor: "#fafafaff",
       }}
     >
       <Box
         sx={{
           display: "grid",
-          gridTemplate: "1fr 1fr 3fr / 1fr",
-          padding: "1rem 1rem 0rem 1rem",
+          gridTemplateRows: { xs: "auto auto auto", md: "auto auto minmax(0, 1fr)" },
+          gap: "1rem",
           minHeight: 0,
         }}
       >
         <Box
           sx={{
             display: "grid",
-            gridTemplate: "1fr / 1fr 2fr",
-            gap: "1.5rem",
-            flexWrap: "wrap",
+            gridTemplateColumns: { xs: "1fr", md: "minmax(0, 1fr) minmax(0, 2fr)" },
+            gap: "1rem",
           }}
         >
           <RunningTasks />
 
           <ActivityWidget data={weeklyTasks} />
         </Box>
-        <Box sx={{ marginTop: "1rem" }}>
+        <Box>
           <Carousel label="Monthly Mentors" length={10}>
             <TeacherCard />
           </Carousel>
@@ -58,8 +60,7 @@ export function DashboardPage() {
           sx={{
             flex: 1,
             minHeight: 0,
-            overflowY: "auto",
-            margin: "1rem 0",
+            overflowY: { xs: "visible", md: "auto" },
           }}
         >
           <Carousel label="Upcoming Tasks" length={10}>
@@ -72,22 +73,24 @@ export function DashboardPage() {
         sx={{
           display: "grid",
           gridTemplateColumns: "1fr",
-          gridTemplateRows: "1fr 2fr",
+          gridTemplateRows: { xs: "12rem 16rem", md: "1fr 2fr" },
+          minHeight: { xs: "auto", lg: 0 },
           flex: "1",
           backgroundColor: "#F5F5F7",
+          borderRadius: "0.75rem",
         }}
       >
         <Box
           sx={{
             borderRadius: "0.65rem",
-            margin: "1rem",
+            margin: "1rem 1rem 0.5rem 1rem",
             backgroundColor: "white",
           }}
         ></Box>
         <Box
           sx={{
             borderRadius: "0.65rem",
-            margin: "0 1rem 1rem 1rem",
+            margin: "0.5rem 1rem 1rem 1rem",
             backgroundColor: "white",
           }}
         ></Box>
